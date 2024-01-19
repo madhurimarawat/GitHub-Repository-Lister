@@ -1,14 +1,14 @@
 # GitHub-Repository-Lister
 An HTML, JS, and Bootstrap-based web application that dynamically lists GitHub repositories and topics based on user input.
 
-<h1>Website Design</h1>
+<h2>Website Design</h2>
 
 <img width="960" title="Main Page Image" alt="Main Page Image" src="https://github.com/madhurimarawat/GitHub-Repository-Lister/assets/105432776/8545ce1e-05af-47a0-9cc0-4887fe615cfe">
 <br> <br>
 <img width="960" title="About Page Image" alt="About Page Image" src="https://github.com/madhurimarawat/GitHub-Repository-Lister/assets/105432776/7b151053-7a06-4706-a057-ca17bdf3437a">
 
 
-# Technology Used 💻
+## Technology Used 💻
 
 ### 🛠 &nbsp;Languages and Tools :
 <p>
@@ -18,7 +18,7 @@ An HTML, JS, and Bootstrap-based web application that dynamically lists GitHub r
   <img src="https://github.com/devicons/devicon/blob/master/icons/bootstrap/bootstrap-plain-wordmark.svg"  title="Bootstrap" alt="Bootstrap" width="40" height="40"/>&nbsp;
 </p>
 
-# Description
+## Description
 --> One of the primary goals of frontend development is to create a smooth or "frictionless" user experience.<br><br>
 --> First a user friendly and responsive interface through frontend was developed.<br><br>
 --> All visual features, pixels and cross browser compatibility will be taken in account.<br><br>
@@ -27,7 +27,7 @@ An HTML, JS, and Bootstrap-based web application that dynamically lists GitHub r
 
 ---
 
-# Mode of Execution Used  <img src="https://th.bing.com/th?id=OSAAS.67CE744F3AF9AB3181DA21630627453B&w=80&h=80&o=6&dpr=2&pid=5.1" title="Notepad++" alt="Notepad++" width="40" height="40"> </a> &nbsp;<img src="https://cdn.freebiesupply.com/logos/large/2x/netlify-logo-png-transparent.png" title="Netlify" alt="Netlify" width="40" height="40">
+## Mode of Execution Used  <img src="https://th.bing.com/th?id=OSAAS.67CE744F3AF9AB3181DA21630627453B&w=80&h=80&o=6&dpr=2&pid=5.1" title="Notepad++" alt="Notepad++" width="40" height="40"> </a> &nbsp;<img src="https://cdn.freebiesupply.com/logos/large/2x/netlify-logo-png-transparent.png" title="Netlify" alt="Netlify" width="40" height="40">
 <h2>Notepad++</h2>
  --> To begin, visit the official website &nbsp; <a href="https://notepad-plus-plus.org/downloads/"><img src="https://th.bing.com/th?id=OSAAS.67CE744F3AF9AB3181DA21630627453B&w=80&h=80&o=6&dpr=2&pid=5.1" title="Notepad++" alt="Notepad++" width="40" height="40"> </a>   <br><br>
 --> Download according to the platform being used like Linux, MacOs or Windows.<br><br>
@@ -49,15 +49,29 @@ An HTML, JS, and Bootstrap-based web application that dynamically lists GitHub r
 9. We can upload HTML,CSS and JS files in netlify.
 
 ---
+## Working
 
-# Website Link
+- **GitHub Integration:**
+  - Fetches repositories from specified GitHub users and topics using JavaScript.
+
+- **Frontend Development:**
+  - Developed with HTML, CSS, and Bootstrap for a clean and responsive user interface.
+
+- **Deployment:**
+  - Easily deployed using Netlify, ensuring accessibility and continuous updates.
+
+- **About Page:**
+  - Explore the details of this project on its about page.
+---
+
+## Website Link
 
 <p>I have hosted this Website using netlify.Click on the image below to have a look at my Website:</p>
 
 <a href="https://github-repository-topics-lister.netlify.app/"> <img src="https://github.com/madhurimarawat/GitHub-Repository-Lister/assets/105432776/8545ce1e-05af-47a0-9cc0-4887fe615cfe" height=100 title="Github Repository Lister website" alt="Github Repository Lister website"></a>
 
 ---
-# Additional Resources 
+## Additional Resources 
 
 <p> For more Frontend Development codes visit my repository: https://github.com/madhurimarawat/Website-Frontend-Developement </p>
 
