@@ -1,19 +1,135 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Repository Lister</title>
+    <title>GitHub Glimpse</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        h2, h3 {
+            text-align: center;
+            color: #007bff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .user-info-card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            display: none;
+            align-items: center;
+        }
+        .user-info-card img {
+            border-radius: 50%;
+            max-width: 150px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .user-details {
+            flex-grow: 1;
+            text-align: center; /* Center align user details */
+        }
+
+        .form-control {
+            width: 200px;
+            margin: 0 auto;
+            display: block;
+        }
+        .repo-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+        .repo-card .card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .repo-description {
+            margin-top: auto;
+            padding: 1rem;
+            background-color: #d0ebff;
+            border: 1px solid #74c0fc;
+            border-radius: 0.25rem;
+        }
+        .repo-link {
+            text-align: center;
+            margin-top: auto;
+        }
+        .repo-link a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #ffffff;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        .repo-link a:hover {
+            text-decoration: none;
+            background-color: #0056b3;
+            color: #ffffff;
+        }
+        .pagination {
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .loader-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .repo-card .card-title {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adding shadow effect to repo name */
+    color: #007bff; /* Adjust color to match existing theme */
+}
+
+.topic-button {
+    background-color: #ffc107; /* Yellow background color */
+    color: #212529;
+    border: none;
+    margin: 2px;
+    box-shadow: 0 2px 4px rgba(255, 193, 7, 0.5); /* Shadow effect for topics button */
+}
+
+.topic-button:hover {
+    background-color: #ffb400; /* Darker yellow on hover */
+    color: #212529;
+}
+
+    </style>
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg bg-primary">
+<nav class="navbar navbar-expand-lg bg-primary">
     <a>
-        <img src="GitHub Logo.png" height="75" width = "140">
+        <img src="GitHub Logo.png" height="50" width="70">
     </a>
     <div class="container-fluid">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -21,33 +137,62 @@
                 <a class="nav-link active" aria-current="page" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="About.html">About</a>
+                <a class="nav-link" href="About.html">GitHub Toolkit</a>
             </li>
-		
         </ul>
-	    <form class="form-inline my-2 my-lg-0">
-		 <a href="https://github.com/madhurimarawat/GitHub-Repository-Lister"> <button type="button" class="btn btn-dark" type="Submit" >GitHub</button></a>&nbsp &nbsp
-	    </form>
+        <form class="form-inline my-2 my-lg-1">
+            <a href="https://github.com/madhurimarawat/GitHub-Repository-Lister"><button type="button" class="btn btn-dark">GitHub</button></a>
+        </form>
     </div>
 </nav>
 
-    <br><br>
-    <center><h2 style="text-align: center;">GitHub Repository Lister</h2></center>
- <br>
-    <center>
-	<div>
-
-            <input id="usernameInput" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+<br><br>
+<center><h2>GitHub Glimpse</h2></center>
+<br>
+<center>
+    <div>
+        <input id="usernameInput" type="text" class="form-control" placeholder="Enter GitHub Username">
         <br>
-		
-        <button id="fetchButton" class="btn btn-primary mt-3">Fetch Repositories</button>
-		</div>
-    </center>
+        <button id="fetchButton" class="btn btn-primary">Fetch Repositories</button>
+        <br><br>
+        <small class="text-muted mt-2">Enter a GitHub username above to fetch their public repositories.</small>
+    </div>
+</center>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <!-- Include the new JavaScript file -->
-    <script src="github-repo-fetcher.js"></script>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="userInfo" class="user-info-card card">
+                <img id="userImage" src="" alt="Profile Image">
+                <div class="user-details">
+                    <h3 id="userName"></h3>
+                    <p id="userLocation" class="text-muted"></p>
+                    <p id="userBio"></p>
+                    <p id="userLinks"></p>
+                    <p id="userSocialLinks"></p>
+                    <p id="userFollowers"></p>
+                    <p id="userRepos"></p>
+                    <p id="userStars"></p>
+                    <p id="userPullRequests"></p>
+                    <p id="userIssues"></p>
+                    <p id="userProfileLink"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div id="loaderContainer" class="loader-container">
+                <div id="loader" class="loader" style="display: none;"></div>
+            </div>
+            <div id="repositories" class="row row-cols-1 row-cols-md-3 g-4"></div>
+            <nav id="pagination" aria-label="Pagination" class="d-flex justify-content-center"></nav>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<!-- Include the new JavaScript file -->
+<script src="github-repo-fetcher.js"></script>
 </body>
 </html>
