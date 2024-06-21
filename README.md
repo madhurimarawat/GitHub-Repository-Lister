@@ -3,9 +3,14 @@ An HTML, JS, and Bootstrap-based web application that dynamically lists GitHub r
 
 <h2>Website Design</h2>
 
-<img width="960" title="Main Page Image" alt="Main Page Image" src="https://github.com/madhurimarawat/GitHub-Repository-Lister/assets/105432776/8545ce1e-05af-47a0-9cc0-4887fe615cfe">
+<img width="960" title="Main Page Image" alt="Main Page Image" src="https://github.com/madhurimarawat/GitHub-Repository-Lister/assets/105432776/e55efd2a-6fe4-43c6-850e-9726cbafdfaf">
+<br><br>
+<img width="960" title="Main Page Image" alt="Main Page Image" src="https://github.com/madhurimarawat/GitHub-Repository-Lister/assets/105432776/779129e6-6bb5-479c-8e18-3607054cd187">
+<br><br>
+<img width="960" title="Main Page Image" alt="Main Page Image" src="https://github.com/madhurimarawat/GitHub-Repository-Lister/assets/105432776/b6673d2a-ed47-466a-91da-71244453c5e5">
+
 <br> <br>
-<img width="960" title="About Page Image" alt="About Page Image" src="https://github.com/madhurimarawat/GitHub-Repository-Lister/assets/105432776/7b151053-7a06-4706-a057-ca17bdf3437a">
+<img width="960" title="About Page Image" alt="About Page Image" src="https://github.com/madhurimarawat/GitHub-Repository-Lister/assets/105432776/2e460c85-bf2f-49b1-bf19-35beaa0aee71">
 
 
 ## Technology Used 💻
@@ -68,7 +73,7 @@ An HTML, JS, and Bootstrap-based web application that dynamically lists GitHub r
 
 <p>I have hosted this Website using netlify.Click on the image below to have a look at my Website:</p>
 
-<a href="https://github-repository-topics-lister.netlify.app/"> <img src="https://github.com/madhurimarawat/GitHub-Repository-Lister/assets/105432776/8545ce1e-05af-47a0-9cc0-4887fe615cfe" height=100 title="Github Repository Lister website" alt="Github Repository Lister website"></a>
+<a href="https://github-repository-topics-lister.netlify.app/"> <img src="https://github.com/madhurimarawat/GitHub-Repository-Lister/assets/105432776/e55efd2a-6fe4-43c6-850e-9726cbafdfaf" height=100 title="Github Repository Lister website" alt="Github Repository Lister website"></a>
 
 ---
 ## Additional Resources 
