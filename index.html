@@ -29,6 +29,8 @@
             margin-bottom: 20px;
             display: none;
             align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
         }
         .user-info-card img {
             border-radius: 50%;
@@ -107,23 +109,24 @@
             100% { transform: rotate(360deg); }
         }
         .repo-card .card-title {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adding shadow effect to repo name */
-    color: #007bff; /* Adjust color to match existing theme */
-}
-
-.topic-button {
-    background-color: #ffc107; /* Yellow background color */
-    color: #212529;
-    border: none;
-    margin: 2px;
-    box-shadow: 0 2px 4px rgba(255, 193, 7, 0.5); /* Shadow effect for topics button */
-}
-
-.topic-button:hover {
-    background-color: #ffb400; /* Darker yellow on hover */
-    color: #212529;
-}
-
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adding shadow effect to repo name */
+            color: #007bff; /* Adjust color to match existing theme */
+        }
+        .topic-button {
+            background-color: #ffc107; /* Yellow background color */
+            color: #212529;
+            border: none;
+            margin: 2px;
+            box-shadow: 0 2px 4px rgba(255, 193, 7, 0.5); /* Shadow effect for topics button */
+        }
+        .topic-button:hover {
+            background-color: #ffb400; /* Darker yellow on hover */
+            color: #212529;
+        }
+        .centered-td {
+            text-align: center;
+            vertical-align: middle;
+        }
     </style>
 </head>
 <body>
@@ -163,20 +166,33 @@
     <div class="row">
         <div class="col-md-12">
             <div id="userInfo" class="user-info-card card">
-                <img id="userImage" src="" alt="Profile Image">
-                <div class="user-details">
-                    <h3 id="userName"></h3>
-                    <p id="userLocation" class="text-muted"></p>
-                    <p id="userBio"></p>
-                    <p id="userLinks"></p>
-                    <p id="userSocialLinks"></p>
-                    <p id="userFollowers"></p>
-                    <p id="userRepos"></p>
-                    <p id="userStars"></p>
-                    <p id="userPullRequests"></p>
-                    <p id="userIssues"></p>
-                    <p id="userProfileLink"></p>
-                </div>
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <h3 id="userName" style="text-align: center;"></h3>
+                        </td>
+                    </tr>
+                    <br>
+                    <tr>
+                        <td class="centered-td">
+                            <img id="userImage" src="" alt="Profile Image">
+                        </td>
+                        <td class="centered-td">
+                            <div class="user-details">
+                                <p id="userLocation" class="text-muted"></p>
+                                <p id="userBio"></p>
+                                <p id="userLinks"></p>
+                                <p id="userSocialLinks"></p>
+                                <p id="userFollowers"></p>
+                                <p id="userRepos"></p>
+                                <p id="userStars"></p>
+                                <p id="userPullRequests"></p>
+                                <p id="userIssues"></p>
+                                <p id="userProfileLink"></p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
         <div class="col-md-12">
