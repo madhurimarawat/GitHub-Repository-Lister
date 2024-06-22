@@ -22,14 +22,12 @@ const loader = document.getElementById('loader');
 const paginationDiv = document.getElementById('pagination');
 const userInfoCard = document.getElementById('userInfo');
 
-let repositoriesData = []; // Array to store fetched repositories
-let currentPage = 1; // Variable to track current page
+let repositoriesData = [];
+let currentPage = 1;
 
-// Event listener for fetch button click
-fetchButton.addEventListener('click', fetchRepositories);
+fetchButton.addEventListener('click', fetchUserData);
 
-// Function to fetch repositories
-async function fetchRepositories() {
+async function fetchUserData() {
     const username = usernameInput.value.trim();
 
     if (username === '') {
@@ -37,7 +35,6 @@ async function fetchRepositories() {
         return;
     }
 
-    // Clear previous data
     clearUserData();
     repositoriesDiv.innerHTML = '';
     paginationDiv.innerHTML = '';
@@ -45,89 +42,118 @@ async function fetchRepositories() {
     loader.style.display = 'block';
 
     try {
-        // Fetch user data
-        const userResponse = await fetch(`${API_URL}/users/${username}`);
-        if (!userResponse.ok) {
-            throw new Error('Failed to fetch user data');
-        }
-        const userData = await userResponse.json();
-
-        // Display user information
+        const userData = await fetchUser(username);
         displayUserInfo(userData);
 
-        // Display user info card
         userInfoCard.style.display = 'flex';
 
-        // Fetch repositories
-        const repositoriesResponse = await fetch(`${API_URL}/users/${username}/repos`);
-        if (!repositoriesResponse.ok) {
-            throw new Error('Failed to fetch repositories');
-        }
-        repositoriesData = await repositoriesResponse.json();
-
-        // Display first page of repositories
+        repositoriesData = await fetchRepositories(username);
         displayRepositories(currentPage);
 
     } catch (error) {
-        repositoriesDiv.innerHTML = `<div class="alert alert-danger" role="alert">
-                                        Failed to fetch repositories. Please check the username and try again.
-                                     </div>`;
+        displayError('Failed to fetch data. Please check the username and try again.');
     } finally {
         loader.style.display = 'none';
-        setTimeout(() => {
-            loaderContainer.style.display = 'none';
-        }, 2000);
+        loaderContainer.style.display = 'none';
     }
 }
 
-// Function to display user information
+async function fetchUser(username) {
+    const response = await fetch(`${API_URL}/users/${username}`);
+    if (!response.ok) {
+        throw new Error('Failed to fetch user data');
+    }
+    return response.json();
+}
+
+async function fetchRepositories(username) {
+    const response = await fetch(`${API_URL}/users/${username}/repos`);
+    if (!response.ok) {
+        throw new Error('Failed to fetch repositories');
+    }
+    return response.json();
+}
+
+async function fetchPullRequests(repoUrl) {
+    const response = await fetch(repoUrl.replace('{/number}', ''));
+    if (!response.ok) {
+        return 0;
+    }
+    const pullRequests = await response.json();
+    return pullRequests.length;
+}
+
 function displayUserInfo(userData) {
-    const { login, name, avatar_url, html_url, location, bio, followers, public_repos, blog, twitter_username } = userData;
+    const { login, name, avatar_url, html_url, location, bio, followers, public_repos, blog, twitter_username, email, company } = userData;
 
     userImage.src = avatar_url;
     userImage.style.display = 'block';
-    userName.textContent = name ? name : login;
+    userName.textContent = name || login;
     userLocation.textContent = location ? `Location: ${location}` : '';
-    userBio.textContent = bio ? bio : '';
-
+    userBio.textContent = bio || '';
     userProfileLink.innerHTML = `<a href="${html_url}" target="_blank" class="btn btn-primary">View on GitHub</a>`;
-    userFollowers.innerHTML = `👥 Followers: ${followers}`;
-    userRepos.innerHTML = `📦 Public Repos: ${public_repos}`;
-    userLinks.innerHTML = blog ? `🔗 <a href="${blog}" target="_blank">${blog}</a>` : '';
+    userFollowers.textContent = `👥 Followers: ${followers}`;
+    userRepos.textContent = `📦 Public Repos: ${public_repos}`;
 
-    // Social media links
     const socialLinks = [];
-    if (twitter_username) {
-        socialLinks.push(`🐦 <a href="https://twitter.com/${twitter_username}" target="_blank">Twitter</a>`);
+    if (blog) {
+        socialLinks.push(`🔗 <a href="${blog}" target="_blank">${blog}</a>`);
     }
-    userSocialLinks.innerHTML = socialLinks.join(' | ');
+    if (twitter_username) {
+        socialLinks.push(`🐦 <a href="https://twitter.com/${twitter_username}" target="_blank">@${twitter_username}</a>`);
+    }
+    if (email) {
+        socialLinks.push(`📧 <a href="mailto:${email}">${email}</a>`);
+    }
+    if (company) {
+        socialLinks.push(`🏢 ${company}`);
+    }
+    fetchSocialLinks(userData.html_url).then(links => {
+        if (links.instagram) {
+            socialLinks.push(`📸 <a href="${links.instagram}" target="_blank">Instagram</a>`);
+        }
+        if (links.linkedin) {
+            socialLinks.push(`🔗 <a href="${links.linkedin}" target="_blank">LinkedIn</a>`);
+        }
+    });
 
-    // Fetch additional data for stars, pull requests, and issues
-    Promise.all([
-        fetch(`${API_URL}/users/${login}/starred`),
-        fetch(`${API_URL}/search/issues?q=author:${login}+type:pr`),
-        fetch(`${API_URL}/search/issues?q=author:${login}+type:issue`)
-    ]).then(async ([starredResponse, pullsResponse, issuesResponse]) => {
+    userSocialLinks.innerHTML = socialLinks.join(' | ');
+    fetchAdditionalUserData(login);
+}
+
+async function fetchSocialLinks(profileUrl) {
+    // You would need a service to fetch Instagram, LinkedIn links, which is not available via GitHub API.
+    // This is a placeholder function assuming you can fetch such data.
+    // In real scenarios, scraping or another API might be needed.
+    return {
+        instagram: null,  // Replace with actual URL if available
+        linkedin: null    // Replace with actual URL if available
+    };
+}
+
+async function fetchAdditionalUserData(username) {
+    try {
+        const [starredResponse, pullsResponse, issuesResponse] = await Promise.all([
+            fetch(`${API_URL}/users/${username}/starred`),
+            fetch(`${API_URL}/search/issues?q=author:${username}+type:pr`),
+            fetch(`${API_URL}/search/issues?q=author:${username}+type:issue`)
+        ]);
+
         const starredRepos = await starredResponse.json();
         const pullsData = await pullsResponse.json();
         const issuesData = await issuesResponse.json();
 
-        userStars.innerHTML = `⭐ Stars: ${starredRepos.length}`;
-        userPullRequests.innerHTML = `🔃 Pull Requests: ${pullsData.total_count !== undefined ? pullsData.total_count : 0}`;
-        userIssues.innerHTML = `❗ Issues: ${issuesData.total_count !== undefined ? issuesData.total_count : 0}`;
-    }).catch(error => {
-        console.error('Failed to fetch additional data:', error);
-
-        // Handle case where data is not available or error occurred
-        userStars.innerHTML = `⭐ Stars: 0`;
-        userPullRequests.innerHTML = `🔃 Pull Requests: 0`;
-        userIssues.innerHTML = `❗ Issues: 0`;
-    });
+        userStars.textContent = `⭐ Stars: ${starredRepos.length}`;
+        userPullRequests.textContent = `🔃 Pull Requests: ${pullsData.total_count || 0}`;
+        userIssues.textContent = `❗ Issues: ${issuesData.total_count || 0}`;
+    } catch (error) {
+        console.error('Failed to fetch additional user data:', error);
+        userStars.textContent = `⭐ Stars: 0`;
+        userPullRequests.textContent = `🔃 Pull Requests: 0`;
+        userIssues.textContent = `❗ Issues: 0`;
+    }
 }
 
-
-
-// Function to display repositories paginated
 function displayRepositories(page) {
     currentPage = page;
     const startIndex = (page - 1) * 9;
@@ -135,16 +161,21 @@ function displayRepositories(page) {
     const displayedRepos = repositoriesData.slice(startIndex, endIndex);
 
     repositoriesDiv.innerHTML = displayedRepos.map(repo => {
-        const { name, description, html_url, topics } = repo;
-
+        const { name, description, html_url, topics, license, stargazers_count, open_issues_count, pulls_url } = repo;
         return `
             <div class="col-md-4">
                 <div class="card mb-4 repo-card">
                     <div class="card-body">
                         <h5 class="card-title">${name}</h5>
-                        <p class="card-text">${description ? description : 'No description provided'}</p>
+                        <p class="card-text">${description || 'No description provided'}</p>
                         <div class="repo-description">
                             ${topics.map(topic => `<button type="button" class="btn topic-button btn-sm">${topic}</button>`).join(' ')}
+                        </div>
+                        <div class="repo-details">
+                            <p>License: ${license ? license.spdx_id : 'None'}</p>
+                            <p>⭐ Stars: ${stargazers_count}</p>
+                            <p>❗ Issues: ${open_issues_count}</p>
+                            <p id="pull-requests-${name}">🔃 Pull Requests: Fetching...</p>
                         </div>
                         <div class="repo-link">
                             <a href="${html_url}" target="_blank" class="btn btn-primary">View on GitHub</a>
@@ -155,14 +186,18 @@ function displayRepositories(page) {
         `;
     }).join('');
 
-    // Display pagination
+    displayedRepos.forEach(repo => {
+        const { name, pulls_url } = repo;
+        fetchPullRequests(pulls_url).then(count => {
+            document.getElementById(`pull-requests-${name}`).textContent = `🔃 Pull Requests: ${count}`;
+        });
+    });
+
     displayPagination();
 }
 
-// Function to display pagination
 function displayPagination() {
     const totalPages = Math.ceil(repositoriesData.length / 9);
-
     let paginationHTML = `
         <ul class="pagination">
             <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
@@ -188,27 +223,26 @@ function displayPagination() {
     paginationDiv.innerHTML = paginationHTML;
 }
 
-// Function to navigate to a specific page
 function navigatePage(page) {
-    if (page < 1 || page > Math.ceil(repositoriesData.length / 9)) {
-        return;
+    if (page >= 1 && page <= Math.ceil(repositoriesData.length / 9)) {
+        displayRepositories(page);
     }
-    displayRepositories(page);
 }
 
-// Function to clear user data
 function clearUserData() {
     userImage.style.display = 'none';
-    userImage.src = '';
     userName.textContent = '';
     userLocation.textContent = '';
     userBio.textContent = '';
     userProfileLink.innerHTML = '';
-    userFollowers.innerHTML = '';
-    userRepos.innerHTML = '';
-    userStars.innerHTML = '';
-    userPullRequests.innerHTML = '';
-    userIssues.innerHTML = '';
-    userLinks.innerHTML = '';
     userSocialLinks.innerHTML = '';
+    userFollowers.textContent = '';
+    userRepos.textContent = '';
+    userStars.textContent = '';
+    userPullRequests.textContent = '';
+    userIssues.textContent = '';
+}
+
+function displayError(message) {
+    alert(message);
 }
