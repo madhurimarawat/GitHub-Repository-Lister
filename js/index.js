@@ -67,7 +67,7 @@ async function fetchUser(username) {
 }
 
 async function fetchRepositories(username) {
-    const response = await fetch(`${API_URL}/users/${username}/repos`);
+    const response = await fetch(`${API_URL}/users/${username}/repos?per_page=100`);
     if (!response.ok) {
         throw new Error('Failed to fetch repositories');
     }
