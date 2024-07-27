@@ -80,7 +80,7 @@ An HTML, JS, and Bootstrap-based web application that dynamically lists GitHub r
 
 ## Website Link
 
-<p>I have hosted this Website using netlify.Click on the image below to have a look at my Website:</p>
+<p>I have hosted this Website using netlify. Click on the image below to have a look at my Website:</p>
 
 <a href="https://github-repository-topics-lister.netlify.app/"> <img src="https://github.com/madhurimarawat/GitHub-Repository-Lister/assets/105432776/f718b213-de2e-41b6-a5b1-1f180338f49f" height=100 title="Github Repository Lister website" alt="Github Repository Lister website"></a>
 
