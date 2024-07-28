@@ -8,13 +8,12 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
-
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-primary">
         <a>
-            <img src="GitHub Logo.png" height="50" width="70">
+            <img src="GitHub Logo.png" height="50" width="70" alt="GitHub Logo">
         </a>
         <div class="container-fluid">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -26,8 +25,9 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-1">
-                <a href="https://github.com/madhurimarawat/GitHub-Repository-Lister"><button type="button"
-                        class="btn btn-dark">GitHub</button></a>
+                <a href="https://github.com/madhurimarawat/GitHub-Repository-Lister">
+                    <button type="button" class="btn btn-dark">GitHub</button>
+                </a>
             </form>
         </div>
     </nav>
@@ -57,10 +57,9 @@
                                 <h3 id="userName" style="text-align: center;"></h3>
                             </td>
                         </tr>
-                        <br>
                         <tr>
                             <td class="centered-td">
-                                <img id="userImage" src="" alt="Profile Image">
+                                <img id="userImage" src="" alt="Profile Image" style="display: none;">
                             </td>
                             <td class="centered-td">
                                 <div class="user-details">
@@ -70,7 +69,8 @@
                                     <p id="userSocialLinks"></p>
                                     <p id="userFollowers"></p>
                                     <p id="userRepos"></p>
-                                    <p id="userStars"></p>
+                                    <p id="userStarsGiven"></p>
+                                    <p id="userStarsEarned"></p>
                                     <p id="userPullRequests"></p>
                                     <p id="userIssues"></p>
                                     <p id="userProfileLink"></p>
@@ -81,8 +81,8 @@
                 </div>
             </div>
             <div class="col-md-12">
-                <div id="loaderContainer" class="loader-container">
-                    <div id="loader" class="loader" style="display: none;"></div>
+                <div id="loaderContainer" class="loader-container" style="display: none;">
+                    <div id="loader" class="loader"></div>
                 </div>
                 <div id="repositories" class="row row-cols-1 row-cols-md-3 g-4"></div>
                 <nav id="pagination" aria-label="Pagination" class="d-flex justify-content-center"></nav>

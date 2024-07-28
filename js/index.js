@@ -13,7 +13,8 @@ const userLinks = document.getElementById('userLinks');
 const userSocialLinks = document.getElementById('userSocialLinks');
 const userFollowers = document.getElementById('userFollowers');
 const userRepos = document.getElementById('userRepos');
-const userStars = document.getElementById('userStars');
+const userStarsGiven = document.getElementById('userStarsGiven');
+const userStarsEarned = document.getElementById('userStarsEarned');
 const userPullRequests = document.getElementById('userPullRequests');
 const userIssues = document.getElementById('userIssues');
 const repositoriesDiv = document.getElementById('repositories');
@@ -48,7 +49,12 @@ async function fetchUserData() {
         userInfoCard.style.display = 'flex';
 
         repositoriesData = await fetchRepositories(username);
+        repositoriesData.sort((a, b) => b.stargazers_count - a.stargazers_count); // Sort by stars
         displayRepositories(currentPage);
+
+        // Calculate total stars earned
+        const totalStarsEarned = repositoriesData.reduce((total, repo) => total + repo.stargazers_count, 0);
+        userStarsEarned.textContent = `✨ Stars Earned: ${totalStarsEarned}`;
 
     } catch (error) {
         displayError('Failed to fetch data. Please check the username and try again.');
@@ -122,12 +128,10 @@ function displayUserInfo(userData) {
 }
 
 async function fetchSocialLinks(profileUrl) {
-    // You would need a service to fetch Instagram, LinkedIn links, which is not available via GitHub API.
-    // This is a placeholder function assuming you can fetch such data.
-    // In real scenarios, scraping or another API might be needed.
+    // Placeholder function assuming you can fetch such data.
     return {
-        instagram: null,  // Replace with actual URL if available
-        linkedin: null    // Replace with actual URL if available
+        instagram: null,
+        linkedin: null
     };
 }
 
@@ -143,12 +147,13 @@ async function fetchAdditionalUserData(username) {
         const pullsData = await pullsResponse.json();
         const issuesData = await issuesResponse.json();
 
-        userStars.textContent = `⭐ Stars: ${starredRepos.length}`;
+        userStarsGiven.textContent = `⭐ Stars Given: ${starredRepos.length}`;
         userPullRequests.textContent = `🔃 Pull Requests: ${pullsData.total_count || 0}`;
         userIssues.textContent = `❗ Issues: ${issuesData.total_count || 0}`;
+
     } catch (error) {
         console.error('Failed to fetch additional user data:', error);
-        userStars.textContent = `⭐ Stars: 0`;
+        userStarsGiven.textContent = `⭐ Stars Given: 0`;
         userPullRequests.textContent = `🔃 Pull Requests: 0`;
         userIssues.textContent = `❗ Issues: 0`;
     }
@@ -235,12 +240,14 @@ function clearUserData() {
     userLocation.textContent = '';
     userBio.textContent = '';
     userProfileLink.innerHTML = '';
-    userSocialLinks.innerHTML = '';
     userFollowers.textContent = '';
     userRepos.textContent = '';
-    userStars.textContent = '';
+    userStarsGiven.textContent = '';
+    userStarsEarned.textContent = '';
     userPullRequests.textContent = '';
     userIssues.textContent = '';
+    userSocialLinks.innerHTML = '';
+    userInfoCard.style.display = 'none';
 }
 
 function displayError(message) {

@@ -13,3 +13,49 @@ h3 {
     color: #007bff;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
+
+.card .card-title {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Specific colors for each card */
+.card-github .card-title {
+    color: black;
+}
+
+.card-profile .card-title {
+    color: green;
+}
+
+.card-followers .card-title {
+    color: darkcyan;
+}
+
+.card-repository .card-title {
+    color: red;
+}
+
+.card-topics .card-title {
+    color: orange;
+}
+
+.card-stars .card-title {
+    color: gold;
+}
+
+.card-license .card-title {
+    color: purple;
+}
+
+.card-issues .card-title {
+    color: brown;
+}
+
+.card-pull-requests .card-title {
+    color: gray;
+}
+
+.card .card-body {
+    text-align: justify;
+}
