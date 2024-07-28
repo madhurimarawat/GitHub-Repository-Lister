@@ -3,12 +3,12 @@ An HTML, JS, and Bootstrap-based web application that dynamically lists GitHub r
 
 <h2>Website Design</h2>
 
-<a href="https://github-repository-topics-lister.netlify.app/"><img width="960" title="Main Page Image" alt="Main Page Image" src="https://github.com/madhurimarawat/GitHub-Repository-Lister/assets/105432776/aa62addd-d262-4c74-947a-9068385727f0"></a>
+<a href="https://madhurimarawat.github.io/GitHub-Repository-Lister"><img width="960" title="Main Page Image" alt="Main Page Image" src="https://github.com/user-attachments/assets/f7896b3c-c31a-40e8-82d9-a14b4d435399"></a>
 <br><br>
-<a href="https://github-repository-topics-lister.netlify.app/"><img width="960" title="Main Page Image" alt="Main Page Image" src="https://github.com/madhurimarawat/GitHub-Repository-Lister/assets/105432776/8b9cade2-c861-4b88-ab72-1598745f9ce0"></a>
+<a href="https://madhurimarawat.github.io/GitHub-Repository-Lister"><img width="960" title="Main Page Image" alt="Main Page Image" src="https://github.com/madhurimarawat/GitHub-Repository-Lister/assets/105432776/8b9cade2-c861-4b88-ab72-1598745f9ce0"></a>
 
 <br> <br>
-<a href="https://github-repository-topics-lister.netlify.app/about"><img width="960" title="About Page Image" alt="About Page Image" src="https://github.com/madhurimarawat/GitHub-Repository-Lister/assets/105432776/2e460c85-bf2f-49b1-bf19-35beaa0aee71">
+<a href="https://madhurimarawat.github.io/GitHub-Repository-Lister/About.html"><img width="960" title="About Page Image" alt="About Page Image" src="https://github.com/user-attachments/assets/0ace3101-1e13-4df6-82f5-4087afe110d8">
 
 
 ## Technology Used 💻
