@@ -55,6 +55,13 @@ h3 {
     padding-top: 10px;
 }
 
+.repo-card .card-title {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    /* Adding shadow effect to repo name */
+    color: #007bff;
+    /* Adjust color to match existing theme */
+}
+
 .repo-card .card-body {
     flex: 1;
     display: flex;
@@ -120,13 +127,6 @@ h3 {
     100% {
         transform: rotate(360deg);
     }
-}
-
-.repo-card .card-title {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    /* Adding shadow effect to repo name */
-    color: #007bff;
-    /* Adjust color to match existing theme */
 }
 
 .topic-button {
