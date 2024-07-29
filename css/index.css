@@ -1,124 +1,226 @@
+/*
+*********************************************************************************************
+* File: index.css
+* Author: Madhurima Rawat
+* Date: July 29, 2024
+* Description: CSS file for styling various components on the website, including cards, headings,
+*              user info sections, repository cards, pagination, loaders, and buttons. Provides 
+*              visual enhancements with shadow effects, transitions, and specific color themes.
+* Version: 1.0
+* GitHub Repository: https://github.com/madhurimarawat/GitHub-Repository-Lister
+* Issues/Bugs: For any issues or bugs, please visit the GitHub repository issues section.
+* Comments: This CSS file defines styling rules for a range of components, including card effects,
+*           text alignments, button styles, and loaders. The styles enhance user experience by 
+*           providing visual feedback and maintaining consistency across the website.
+* Dependencies: None
+*********************************************************************************************
+*/
+
+/* Basic styling for card components */
 .card {
+    /* Apply a subtle shadow to cards */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Smooth transition for transform and box-shadow properties */
     transition: transform 0.3s, box-shadow 0.3s;
+    /* Ensure cards take full height of their container */
     height: 100%;
+    /* Use flexbox to arrange child elements in a column layout */
     display: flex;
     flex-direction: column;
 }
 
+/* Styling for card hover state */
 .card:hover {
+    /* Lift the card up on hover */
     transform: translateY(-10px);
+    /* Enhance the shadow effect on hover */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Styling for headings (h2 and h3) */
 h2,
 h3 {
+    /* Center-align the text */
     text-align: center;
+    /* Set the text color */
     color: #007bff;
+    /* Apply a shadow effect to the text */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Styling for user info cards */
 .user-info-card {
+    /* Apply a subtle shadow to user info cards */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add padding inside the card */
     padding: 20px;
+    /* Add margin at the bottom of the card */
     margin-bottom: 20px;
+    /* Hide the card by default */
     display: none;
+    /* Center align content inside the card */
     align-items: center;
+    /* Limit the card's maximum width */
     max-width: 600px;
+    /* Center the card horizontally */
     margin: 0 auto;
 }
 
+/* Styling for images inside user info cards */
 .user-info-card img {
+    /* Make the image circular */
     border-radius: 50%;
+    /* Limit the image width */
     max-width: 150px;
+    /* Maintain aspect ratio */
     height: auto;
+    /* Add margin to the right of the image */
     margin-right: 20px;
 }
 
+/* Styling for user details section inside user info cards */
 .user-details {
+    /* Allow the details section to grow and fill available space */
     flex-grow: 1;
+    /* Center-align the text */
     text-align: center;
-    /* Center align user details */
 }
 
+/* Styling for form controls */
 .form-control {
+    /* Limit the width of form controls */
     width: 200px;
+    /* Center align the form control */
     margin: 0 auto;
+    /* Display the form control as a block */
     display: block;
 }
 
+/* Styling for repository cards */
 .repo-card {
+    /* Use flexbox for layout */
     display: flex;
     flex-direction: column;
+    /* Ensure cards take full height of their container */
     height: 100%;
+    /* Add a border at the top */
     border-top: 1px solid #ccc;
+    /* Add padding at the top */
     padding-top: 10px;
 }
 
+/* Styling for repository card titles */
 .repo-card .card-title {
+    /* Apply a shadow effect to the text */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    /* Adding shadow effect to repo name */
+    /* Set the text color */
     color: #007bff;
-    /* Adjust color to match existing theme */
 }
 
+/* Styling for repository card body */
 .repo-card .card-body {
+    /* Allow the body to grow and fill available space */
     flex: 1;
+    /* Use flexbox for layout */
     display: flex;
     flex-direction: column;
 }
 
+/* Styling for repository descriptions */
 .repo-description {
+    /* Add margin at the top to push content down */
     margin-top: auto;
+    /* Add padding inside the description */
     padding: 1rem;
+    /* Set background color */
     background-color: #d0ebff;
+    /* Add a border around the description */
     border: 1px solid #74c0fc;
+    /* Round the corners of the border */
     border-radius: 0.25rem;
+    /* Aligning the items in the center */
+    align-items: center;
 }
 
+/* Styling for repository links */
 .repo-link {
+    /* Center align the link container */
     text-align: center;
+    /* Add margin at the top to push content down */
     margin-top: auto;
 }
 
+/* Styling for links inside repository links */
+.repo-link p {
+    color: black;
+    text-align: left;
+}
+
+/* Styling for links inside repository links */
 .repo-link a {
+    /* Display the link as an inline block */
     display: inline-block;
+    /* Add margin at the top */
     margin-top: 10px;
+    /* Add padding inside the link */
     padding: 5px 10px;
+    /* Set background color */
     background-color: #007bff;
+    /* Set text color */
     color: #ffffff;
+    /* Round the corners of the link */
     border-radius: 4px;
+    /* Remove underline from the link */
     text-decoration: none;
 }
 
+/* Styling for repository link hover state */
 .repo-link a:hover {
+    /* Remove underline from the link on hover */
     text-decoration: none;
+    /* Darken the background color on hover */
     background-color: #0056b3;
+    /* Set text color */
     color: #ffffff;
 }
 
+/* Styling for pagination controls */
 .pagination {
+    /* Center align pagination controls */
     justify-content: center;
+    /* Add margin at the top */
     margin-top: 20px;
 }
 
+/* Styling for loader container */
 .loader-container {
+    /* Use flexbox for layout */
     display: flex;
+    /* Center align items horizontally and vertically */
     align-items: center;
     justify-content: center;
+    /* Arrange items in a column */
     flex-direction: column;
 }
 
+/* Styling for loader animation */
 .loader {
+    /* Set border color and width */
     border: 16px solid #f3f3f3;
+    /* Make the loader circular */
     border-radius: 50%;
+    /* Set the top border color for the spinning effect */
     border-top: 16px solid #3498db;
+    /* Limit the width and height */
     width: 120px;
     height: 120px;
+    /* Apply spinning animation */
     animation: spin 2s linear infinite;
+    /* Add margin at the bottom */
     margin-bottom: 20px;
 }
 
+/* Keyframes for spinning animation */
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -129,23 +231,32 @@ h3 {
     }
 }
 
+/* Styling for topic buttons */
 .topic-button {
+    /* Set background color */
     background-color: #ffc107;
-    /* Yellow background color */
+    /* Set text color */
     color: #212529;
+    /* Remove border */
     border: none;
+    /* Add margin around the button */
     margin: 2px;
+    /* Add shadow effect */
     box-shadow: 0 2px 4px rgba(255, 193, 7, 0.5);
-    /* Shadow effect for topics button */
 }
 
+/* Styling for topic button hover state */
 .topic-button:hover {
+    /* Darken background color on hover */
     background-color: #ffb400;
-    /* Darker yellow on hover */
+    /* Set text color */
     color: #212529;
 }
 
+/* Styling for centered table cells */
 .centered-td {
+    /* Center align text */
     text-align: center;
+    /* Vertically align content */
     vertical-align: middle;
 }

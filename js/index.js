@@ -1,3 +1,23 @@
+/*
+*********************************************************************************************
+* File: index.js
+* Author: Madhurima Rawat
+* Date: July 29, 2024
+* Description: JavaScript file for GitHub user data and repositories viewer, providing
+*              functionality to fetch and display GitHub user data, repositories, and related
+*              statistics. Supports pagination and dynamically updates repository details such as
+*              stars, issues, and pull requests.
+* Version: 1.0
+* GitHub Repository: https://github.com/madhurimarawat/GitHub-Repository-Lister
+* Issues/Bugs: For any issues or bugs, please visit the GitHub repository issues section.
+* Comments: This JS file defines functions to fetch and display user information, repositories,
+*           and additional statistics from the GitHub API. It includes functionalities for pagination,
+*           error handling, and dynamic updates of repository details. The script uses async/await
+*           for API calls and handles user interactions for fetching and displaying data.
+* Dependencies: None
+*********************************************************************************************
+*/
+
 // GitHub API endpoint
 const API_URL = 'https://api.github.com';
 
@@ -128,7 +148,7 @@ function displayUserInfo(userData) {
 }
 
 async function fetchSocialLinks(profileUrl) {
-    // Placeholder function assuming you can fetch such data.
+    // Placeholder function because we can not fetch such data.
     return {
         instagram: null,
         linkedin: null
@@ -176,13 +196,11 @@ function displayRepositories(page) {
                         <div class="repo-description">
                             ${topics.map(topic => `<button type="button" class="btn topic-button btn-sm">${topic}</button>`).join(' ')}
                         </div>
-                        <div class="repo-details">
+                        <div class="repo-link">
                             <p>📜 License: ${license ? license.spdx_id : 'None'}</p>
                             <p>⭐ Stars: ${stargazers_count}</p>
                             <p>❗ Issues: ${open_issues_count}</p>
                             <p id="pull-requests-${name}">🔃 Pull Requests: Fetching...</p>
-                        </div>
-                        <div class="repo-link">
                             <a href="${html_url}" target="_blank" class="btn btn-primary">View on GitHub</a>
                         </div>
                     </div>

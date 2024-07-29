@@ -1,61 +1,104 @@
+/*
+*********************************************************************************************
+* File: about.css
+* Author: Madhurima Rawat
+* Date: July 29, 2024
+* Description: CSS file for styling cards and headings on the GitHub user data and repositories
+*              viewer website. Provides styling for card components with shadow effects, hover 
+*              transitions, and specific color themes for different types of cards.
+* Version: 1.0
+* GitHub Repository: https://github.com/madhurimarawat/GitHub-Repository-Lister
+* Issues/Bugs: For any issues or bugs, please visit the GitHub repository issues section.
+* Comments: This CSS file defines styling rules for card components, including shadow effects,
+*           hover transformations, and text shadows. It also provides specific colors for different
+*           types of cards based on their context, such as GitHub profiles, followers, repositories, 
+*           and other details.
+* Dependencies: None
+*********************************************************************************************
+*/
+
+/* Basic styling for card components */
 .card {
+    /* Apply a subtle shadow to cards */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Smooth transition for transform and box-shadow properties */
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+/* Styling for card hover state */
 .card:hover {
+    /* Lift the card up on hover */
     transform: translateY(-10px);
+    /* Enhance the shadow effect on hover */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Styling for headings (h3) */
 h3 {
+    /* Center-align the text */
     text-align: center;
+    /* Set the text color */
     color: #007bff;
+    /* Apply a subtle shadow to the text */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+/* Styling for card titles */
 .card .card-title {
+    /* Apply a subtle shadow to the text for better readability */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    /* Center-align the text */
     text-align: center;
 }
 
-/* Specific colors for each card */
+/* Specific color styles for different card types */
 .card-github .card-title {
+    /* Color for GitHub-related cards */
     color: black;
 }
 
 .card-profile .card-title {
+    /* Color for profile-related cards */
     color: green;
 }
 
 .card-followers .card-title {
+    /* Color for followers-related cards */
     color: darkcyan;
 }
 
 .card-repository .card-title {
+    /* Color for repository-related cards */
     color: red;
 }
 
 .card-topics .card-title {
+    /* Color for topics-related cards */
     color: orange;
 }
 
 .card-stars .card-title {
+    /* Color for stars-related cards */
     color: gold;
 }
 
 .card-license .card-title {
+    /* Color for license-related cards */
     color: purple;
 }
 
 .card-issues .card-title {
+    /* Color for issues-related cards */
     color: brown;
 }
 
 .card-pull-requests .card-title {
+    /* Color for pull requests-related cards */
     color: gray;
 }
 
+/* Styling for the card body */
 .card .card-body {
+    /* Justify-align text for better readability */
     text-align: justify;
 }

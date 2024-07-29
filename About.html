@@ -1,41 +1,73 @@
+<!--
+*********************************************************************************************
+* File: about.html
+* Author: Madhurima Rawat
+* Date: July 29, 2024
+* Description: This HTML file creates a webpage called 'GitHub Toolkit' which features a 
+*              navigation bar and multiple cards describing various GitHub features such as 
+*              repositories, issues, pull requests, etc. The page is styled using Bootstrap 
+*              for responsiveness and custom CSS for additional styling.
+* Version: 1.0
+* GitHub Repository: https://github.com/madhurimarawat/GitHub-Repository-Lister
+* Issues/Bugs: For any issues or bugs, please visit the GitHub repository issues section.
+* Comments: This HTML file defines the structure of the GitHub Toolkit webpage, including 
+*           navigation and card components with images and descriptions of GitHub features.
+* Dependencies: 
+*   - Bootstrap 5.3.0 for CSS and JS
+*   - Popper.js 2.11.6 for Bootstrap
+*   - Custom CSS file (css/about.css) for additional styles
+*********************************************************************************************
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <!-- Metadata and character encoding -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub Toolkit</title>
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS for responsive design and styling -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS for additional styling -->
     <link href="css/about.css" rel="stylesheet">
 </head>
 
 <body>
-
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg bg-primary">
+        <!-- GitHub Logo in the navbar -->
         <a>
             <img src="GitHub Logo.png" height="50" width="70">
         </a>
         <div class="container-fluid">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- Navigation links -->
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="About.html">GitHub Toolkit</a>
                 </li>
-
             </ul>
-
+            <!-- Button linking to GitHub repository -->
+            <form class="form-inline my-2 my-lg-1">
+                <a href="https://github.com/madhurimarawat/GitHub-Repository-Lister">
+                    <button type="button" class="btn btn-dark">GitHub</button>
+                </a>
+            </form>
         </div>
     </nav>
 
     <br>
+    <!-- Page heading -->
     <h3>GitHub Toolkit</h3>
     <br>
 
     <div class="container">
+        <!-- Cards layout for different GitHub features -->
         <div class="row">
+            <!-- Card for GitHub -->
             <div class="col-md-4">
                 <div class="card mb-4 card-github">
                     <div class="card-body">
@@ -44,11 +76,11 @@
                         <img src="GitHub Logo.png" class="card-img-top" height="140" alt="GitHub Image">
                         <br><br>
                         <p class="card-text">GitHub is a web-based platform for version control using Git. It
-                            facilitates
-                            collaborative software development and project management.</p>
+                            facilitates collaborative software development and project management.</p>
                     </div>
                 </div>
             </div>
+            <!-- Card for Profile -->
             <div class="col-md-4">
                 <div class="card mb-4 card-profile">
                     <div class="card-body">
@@ -58,11 +90,11 @@
                             class="card-img-top" alt="Profile Image">
                         <br><br>
                         <p class="card-text">A GitHub profile displays a user's repositories, contributions, and
-                            activity.
-                            It serves as a resume for showcasing skills and projects.</p>
+                            activity. It serves as a resume for showcasing skills and projects.</p>
                     </div>
                 </div>
             </div>
+            <!-- Card for Followers -->
             <div class="col-md-4">
                 <div class="card mb-4 card-followers">
                     <div class="card-body">
@@ -72,13 +104,14 @@
                             height="140" class="card-img-top" alt="Followers Image">
                         <br><br>
                         <p class="card-text">Followers on GitHub are users who follow another user to stay updated on
-                            their
-                            activities, new repositories, projects, and contributions.</p>
+                            their activities, new repositories, projects, and contributions.</p>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- More cards for other GitHub features -->
         <div class="row mt-4">
+            <!-- Card for Repository -->
             <div class="col-md-4">
                 <div class="card mb-4 card-repository">
                     <div class="card-body">
@@ -88,11 +121,11 @@
                             alt="Repository Image">
                         <br><br>
                         <p class="card-text">A GitHub repository is a storage space for version-controlled files and
-                            project
-                            resources. It supports collaborative development and sharing.</p>
+                            project resources. It supports collaborative development and sharing.</p>
                     </div>
                 </div>
             </div>
+            <!-- Card for Topics -->
             <div class="col-md-4">
                 <div class="card mb-4 card-topics">
                     <div class="card-body">
@@ -102,11 +135,11 @@
                             class="card-img-top" alt="Topics Image">
                         <br><br>
                         <p class="card-text">GitHub Topics categorize repositories and are also used for search. They
-                            enable
-                            users to explore and discover projects based on specific themes or interests.</p>
+                            enable users to explore and discover projects based on specific themes or interests.</p>
                     </div>
                 </div>
             </div>
+            <!-- Card for Stars -->
             <div class="col-md-4">
                 <div class="card mb-4 card-stars">
                     <div class="card-body">
@@ -121,7 +154,9 @@
                 </div>
             </div>
         </div>
+        <!-- Additional cards -->
         <div class="row mt-4">
+            <!-- Card for License -->
             <div class="col-md-4">
                 <div class="card mb-4 card-license">
                     <div class="card-body">
@@ -131,11 +166,11 @@
                             height="140" class="card-img-top" alt="License Image">
                         <br><br>
                         <p class="card-text">A GitHub repository license specifies the terms under which the project's
-                            code
-                            can be used, modified, and shared, ensuring clear rights and obligations.</p>
+                            code can be used, modified, and shared, ensuring clear rights and obligations.</p>
                     </div>
                 </div>
             </div>
+            <!-- Card for Issues -->
             <div class="col-md-4">
                 <div class="card mb-4 card-issues">
                     <div class="card-body">
@@ -149,6 +184,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Card for Pull Requests -->
             <div class="col-md-4">
                 <div class="card mb-4 card-pull-requests">
                     <div class="card-body">
@@ -158,14 +194,12 @@
                             alt="Pull Requests Image">
                         <br><br>
                         <p class="card-text">Pull requests on GitHub let users propose changes to a repository. They
-                            enable
-                            code review and discussion before changes are merged into the main project.</p>
+                            enable code review and discussion before changes are merged into the main project.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
