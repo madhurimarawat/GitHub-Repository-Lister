@@ -177,7 +177,7 @@ function displayRepositories(page) {
                             ${topics.map(topic => `<button type="button" class="btn topic-button btn-sm">${topic}</button>`).join(' ')}
                         </div>
                         <div class="repo-details">
-                            <p>License: ${license ? license.spdx_id : 'None'}</p>
+                            <p>📜 License: ${license ? license.spdx_id : 'None'}</p>
                             <p>⭐ Stars: ${stargazers_count}</p>
                             <p>❗ Issues: ${open_issues_count}</p>
                             <p id="pull-requests-${name}">🔃 Pull Requests: Fetching...</p>
