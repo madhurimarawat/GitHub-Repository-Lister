@@ -186,7 +186,7 @@ function displayRepositories(page) {
     const displayedRepos = repositoriesData.slice(startIndex, endIndex);
 
     repositoriesDiv.innerHTML = displayedRepos.map(repo => {
-        const { name, description, html_url, topics, license, stargazers_count, open_issues_count, pulls_url } = repo;
+        const { name, description, html_url, topics, license, stargazers_count, open_issues_count, forks_count, watchers_count, language, updated_at, pulls_url } = repo;
         return `
             <div class="col-md-4">
                 <div class="card mb-4 repo-card">
@@ -197,10 +197,18 @@ function displayRepositories(page) {
                             ${topics.map(topic => `<button type="button" class="btn topic-button btn-sm">${topic}</button>`).join(' ')}
                         </div>
                         <div class="repo-link">
+                        <div class = "repo-actions">
                             <p>📜 License: ${license ? license.spdx_id : 'None'}</p>
+                            <p>📚 Language: ${language || 'None'}</p>
                             <p>⭐ Stars: ${stargazers_count}</p>
                             <p>❗ Issues: ${open_issues_count}</p>
                             <p id="pull-requests-${name}">🔃 Pull Requests: Fetching...</p>
+                            <p id="commits-${name}">📊 Commits: Fetching...</p>
+                            <p id="deployments-${name}">🚀 Deployments: Fetching...</p>
+                            <p>🍴 Forks: ${forks_count}</p>
+                            <p>👁️ Watchers: ${watchers_count}</p>
+                            <p>📅 Updated: ${new Date(updated_at).toLocaleDateString()}</p>
+                            </div>
                             <a href="${html_url}" target="_blank" class="btn btn-primary">View on GitHub</a>
                         </div>
                     </div>
@@ -210,14 +218,47 @@ function displayRepositories(page) {
     }).join('');
 
     displayedRepos.forEach(repo => {
-        const { name, pulls_url } = repo;
+        const { name, pulls_url, owner } = repo;
         fetchPullRequests(pulls_url).then(count => {
             document.getElementById(`pull-requests-${name}`).textContent = `🔃 Pull Requests: ${count}`;
+        });
+        fetchCommits(repo).then(count => {
+            document.getElementById(`commits-${name}`).textContent = `📊 Commits: ${count}`;
+        });
+        fetchDeployments(repo).then(count => {
+            document.getElementById(`deployments-${name}`).textContent = `🚀 Deployments: ${count}`;
         });
     });
 
     displayPagination();
 }
+
+async function fetchCommits(repo) {
+    const { owner, name } = repo;
+    const response = await fetch(`${API_URL}/repos/${owner.login}/${name}/commits?per_page=1`);
+    if (!response.ok) {
+        return 'Error';
+    }
+    const linkHeader = response.headers.get('link');
+    if (linkHeader) {
+        const lastPageMatch = linkHeader.match(/&page=(\d+)>; rel="last"/);
+        if (lastPageMatch) {
+            return parseInt(lastPageMatch[1], 10);
+        }
+    }
+    return 0;
+}
+
+async function fetchDeployments(repo) {
+    const { owner, name } = repo;
+    const response = await fetch(`${API_URL}/repos/${owner.login}/${name}/deployments`);
+    if (!response.ok) {
+        return 0;
+    }
+    const deployments = await response.json();
+    return deployments.length || 0;
+}
+
 
 function displayPagination() {
     const totalPages = Math.ceil(repositoriesData.length / 9);

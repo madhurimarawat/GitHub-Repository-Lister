@@ -260,3 +260,77 @@ h3 {
     /* Vertically align content */
     vertical-align: middle;
 }
+
+.spacer {
+    height: 2em;
+    /* This creates space equivalent to two line breaks */
+}
+
+.repo-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Default to a single column */
+    gap: 10px;
+    /* Add space between grid items */
+}
+
+@media (min-width: 768px) {
+
+    /* Adjust breakpoint as needed */
+    .repo-actions {
+        grid-template-columns: 1fr 1fr;
+        /* Two columns for larger screens */
+    }
+}
+
+/* Media query for smaller devices */
+@media (max-width: 767px) {
+    .user-info-card table {
+        display: block;
+    }
+
+    .user-info-card td {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .user-details {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .user-details p {
+        margin-bottom: 10px;
+    }
+
+    #userProfileLink a {
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    .repo-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .repo-actions p {
+        margin: 0;
+        /* Removes margin between paragraphs */
+        margin-bottom: 5px;
+        /* Adjust this value to decrease or increase space */
+        padding: 0;
+        /* Removes padding inside paragraphs */
+    }
+
+    .centered-td img {
+        display: block;
+        margin: 0 auto;
+        /* Center the image horizontally */
+        padding-top: 10px;
+        /* Add space before the image */
+        padding-bottom: 10px;
+        /* Add space after the image */
+    }
+}
