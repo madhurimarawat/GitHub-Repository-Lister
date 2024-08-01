@@ -5,8 +5,7 @@ An HTML, JS, and Bootstrap-based web application that dynamically lists GitHub r
 
 <a href="https://madhurimarawat.github.io/GitHub-Repository-Lister"><img width="960" title="Main Page Image" alt="Main Page Image" src="https://github.com/user-attachments/assets/f7896b3c-c31a-40e8-82d9-a14b4d435399"></a>
 <br><br>
-<a href="https://madhurimarawat.github.io/GitHub-Repository-Lister"><img width="960" title="Main Page Image" alt="Main Page Image" src="https://github.com/madhurimarawat/GitHub-Repository-Lister/assets/105432776/8b9cade2-c861-4b88-ab72-1598745f9ce0"></a>
-
+<a href="https://madhurimarawat.github.io/GitHub-Repository-Lister"><img width="960" title="Main Page Image" alt="Main Page Image" src="https://github.com/user-attachments/assets/6d6bb2e6-155f-4c8e-99d8-019735783b63"></a>
 <br> <br>
 <a href="https://madhurimarawat.github.io/GitHub-Repository-Lister/About.html"><img width="960" title="About Page Image" alt="About Page Image" src="https://github.com/user-attachments/assets/0ace3101-1e13-4df6-82f5-4087afe110d8">
 
@@ -27,6 +26,8 @@ An HTML, JS, and Bootstrap-based web application that dynamically lists GitHub r
 
 - **Limited Repository Display**: Due to GitHub's API limits, we show a maximum of 30 public repositories per user. This keeps things focused and easy to browse.
 
+- **Repositories Sorted by Stars**: View all repositories sorted by stars for better insight into the most popular projects.
+
 - **Intuitive Pagination**: Easily navigate through repositories with simple pagination controls that make browsing smooth and efficient.
 
 - **Dynamic Loading Animation**: Enjoy a fun loading animation that keeps you entertained while we fetch the data you're looking for.
@@ -35,8 +36,12 @@ An HTML, JS, and Bootstrap-based web application that dynamically lists GitHub r
 
 - **Dedicated GitHub Toolkit**: Explore deeper insights into GitHub with a dedicated page featuring detailed descriptions, repository stars, and graphics that bring GitHub data to life.
 
-- **Enhanced Graphics Area**: Dive into a visually appealing section of toolkit where clean design elements make understanding GitHub stats and trends a breeze.
+- **Enhanced Graphics Area**: Dive into a visually appealing section of the toolkit where clean design elements make understanding GitHub stats and trends a breeze.
 
+- **Comprehensive Repository Details**: View all repository details including license, stars, deployments, forks, watchers, last updated, language, pull requests, commits, and issues. The layout adapts to two columns on computer screens and a single column on mobile phones for better readability.
+
+- **API Rate Limit Notice**: Please note that due to GitHub's API rate limit of 60 requests per hour, data may not be available after this limit is reached. Try again after an hour.
+  
 ---
 
 ## Mode of Execution Used  <img src="https://th.bing.com/th?id=OSAAS.67CE744F3AF9AB3181DA21630627453B&w=80&h=80&o=6&dpr=2&pid=5.1" title="Notepad++" alt="Notepad++" width="40" height="40"> </a> &nbsp;<img src="https://cdn.freebiesupply.com/logos/large/2x/netlify-logo-png-transparent.png" title="Netlify" alt="Netlify" width="40" height="40">
@@ -76,6 +81,27 @@ An HTML, JS, and Bootstrap-based web application that dynamically lists GitHub r
 
 - **About Page:**
   - Explore the details about GitHub on GitHub Toolkit page.
+---
+
+## Directory Structure 🗃️
+
+```
+Github-Repository-Lister/
+├── index.html                # Main landing page of the github repository lister website
+├── About.html                # Page dedicated to github toolkit
+│
+├── css/
+│   ├── index.css             # Stylesheet for index.html
+│   └── about.css             # Stylesheet for about.html
+│
+├── js/
+│ ├── index.js                # Script to dynamically fetch user and repository details
+│
+├── LICENSE                   # MIT License file
+│
+└── README.md                 # Documentation file for the repository
+```
+
 ---
 
 ## Website Link
