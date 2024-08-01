@@ -22,25 +22,27 @@ An HTML, JS, and Bootstrap-based web application that dynamically lists GitHub r
 
 ## Description
 
-- **User-Centric Profiles**: See detailed GitHub user profiles with profile images, bios, locations, followers, and up to 30 public repositories. Everything is neatly centered for clarity and impact.
+- **User-Centric Profiles**: Detailed GitHub user profiles are presented with profile images, bios, locations, followers, and all public repositories, displayed for clarity and impact.
 
-- **Limited Repository Display**: Due to GitHub's API limits, we show a maximum of 30 public repositories per user. This keeps things focused and easy to browse.
+- **Repositories Sorted by Stars**: All repositories are organized by their star count, providing insight into the most popular and noteworthy projects.
 
-- **Repositories Sorted by Stars**: View all repositories sorted by stars for better insight into the most popular projects.
+- **Intuitive Pagination**: Pagination controls are included for smooth navigation through repositories, ensuring an efficient browsing experience.
 
-- **Intuitive Pagination**: Easily navigate through repositories with simple pagination controls that make browsing smooth and efficient.
+- **Dynamic Loading Animation**: A dynamic loading animation engages users while data is being fetched, maintaining a visually appealing interface.
 
-- **Dynamic Loading Animation**: Enjoy a fun loading animation that keeps you entertained while we fetch the data you're looking for.
+- **Unified Visual Design**: The interface features a polished and cohesive design with consistent colors, subtle shadows, and stylish buttons, delivering a professional experience.
 
-- **Unified Visual Design**: Our interface is polished and cohesive, with consistent colors, subtle shadows, and stylish buttons that make using our app a professional experience.
+- **Dedicated GitHub Toolkit**: A dedicated toolkit page offers in-depth insights into GitHub, featuring detailed descriptions, repository stars, and graphics to enhance data visualization.
 
-- **Dedicated GitHub Toolkit**: Explore deeper insights into GitHub with a dedicated page featuring detailed descriptions, repository stars, and graphics that bring GitHub data to life.
+- **Enhanced Graphics Area**: A visually appealing graphics section uses clean design elements to make GitHub statistics and trends easily understandable.
 
-- **Enhanced Graphics Area**: Dive into a visually appealing section of the toolkit where clean design elements make understanding GitHub stats and trends a breeze.
+- **Comprehensive Repository Details**: Displays detailed information for each repository, including license, stars, deployments, forks, watchers, last updated, language, pull requests, commits, and issues. The layout adapts to a two-column format on larger screens and a single column on mobile devices for optimal readability.
 
-- **Comprehensive Repository Details**: View all repository details including license, stars, deployments, forks, watchers, last updated, language, pull requests, commits, and issues. The layout adapts to two columns on computer screens and a single column on mobile phones for better readability.
+- **API Rate Limit Notice**: Due to GitHub's API rate limit of 60 requests per hour, some data may not be available after this limit is reached. Please try again after one hour.
 
-- **API Rate Limit Notice**: Please note that due to GitHub's API rate limit of 60 requests per hour, data may not be available after this limit is reached. Try again after an hour.
+---
+
+This version accurately reflects the functionality of displaying all repositories and maintains a professional tone.
   
 ---
 
