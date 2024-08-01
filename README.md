@@ -39,10 +39,6 @@ An HTML, JS, and Bootstrap-based web application that dynamically lists GitHub r
 - **Comprehensive Repository Details**: Displays detailed information for each repository, including license, stars, deployments, forks, watchers, last updated, language, pull requests, commits, and issues. The layout adapts to a two-column format on larger screens and a single column on mobile devices for optimal readability.
 
 - **API Rate Limit Notice**: Due to GitHub's API rate limit of 60 requests per hour, some data may not be available after this limit is reached. Please try again after one hour.
-
----
-
-This version accurately reflects the functionality of displaying all repositories and maintains a professional tone.
   
 ---
 
