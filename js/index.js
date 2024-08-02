@@ -21,7 +21,7 @@
 // GitHub API endpoint
 const API_URL = 'https://api.github.com';
 
-// Selectors
+// Selectors for HTML elements
 const usernameInput = document.getElementById('usernameInput');
 const fetchButton = document.getElementById('fetchButton');
 const userImage = document.getElementById('userImage');
@@ -46,8 +46,10 @@ const userInfoCard = document.getElementById('userInfo');
 let repositoriesData = [];
 let currentPage = 1;
 
+// Event listener for fetch button click
 fetchButton.addEventListener('click', fetchUserData);
 
+// Function to fetch user data from GitHub API
 async function fetchUserData() {
     const username = usernameInput.value.trim();
 
@@ -76,6 +78,9 @@ async function fetchUserData() {
         const totalStarsEarned = repositoriesData.reduce((total, repo) => total + repo.stargazers_count, 0);
         userStarsEarned.textContent = `✨ Stars Earned: ${totalStarsEarned}`;
 
+        // Fetch and display total commits
+        await fetchTotalCommits(repositoriesData);
+
     } catch (error) {
         displayError('Failed to fetch data. Please check the username and try again.');
     } finally {
@@ -84,6 +89,8 @@ async function fetchUserData() {
     }
 }
 
+
+// Function to fetch user information from GitHub API
 async function fetchUser(username) {
     const response = await fetch(`${API_URL}/users/${username}`);
     if (!response.ok) {
@@ -92,6 +99,7 @@ async function fetchUser(username) {
     return response.json();
 }
 
+// Function to fetch repositories information from GitHub API
 async function fetchRepositories(username) {
     const response = await fetch(`${API_URL}/users/${username}/repos?per_page=100`);
     if (!response.ok) {
@@ -100,6 +108,7 @@ async function fetchRepositories(username) {
     return response.json();
 }
 
+// Function to fetch pull requests count for a repository
 async function fetchPullRequests(repoUrl) {
     const response = await fetch(repoUrl.replace('{/number}', ''));
     if (!response.ok) {
@@ -109,6 +118,7 @@ async function fetchPullRequests(repoUrl) {
     return pullRequests.length;
 }
 
+// Function to display user information in the UI
 function displayUserInfo(userData) {
     const { login, name, avatar_url, html_url, location, bio, followers, public_repos, blog, twitter_username, email, company } = userData;
 
@@ -147,6 +157,7 @@ function displayUserInfo(userData) {
     fetchAdditionalUserData(login);
 }
 
+// Placeholder function for fetching social links (not implemented)
 async function fetchSocialLinks(profileUrl) {
     // Placeholder function because we can not fetch such data.
     return {
@@ -155,6 +166,7 @@ async function fetchSocialLinks(profileUrl) {
     };
 }
 
+// Function to fetch and display additional user data (stars given, pull requests, issues)
 async function fetchAdditionalUserData(username) {
     try {
         const [starredResponse, pullsResponse, issuesResponse] = await Promise.all([
@@ -179,6 +191,7 @@ async function fetchAdditionalUserData(username) {
     }
 }
 
+// Function to display repositories data
 function displayRepositories(page) {
     currentPage = page;
     const startIndex = (page - 1) * 9;
@@ -233,22 +246,35 @@ function displayRepositories(page) {
     displayPagination();
 }
 
+// Function to fetch commits for a repository
 async function fetchCommits(repo) {
     const { owner, name } = repo;
-    const response = await fetch(`${API_URL}/repos/${owner.login}/${name}/commits?per_page=1`);
-    if (!response.ok) {
-        return 'Error';
-    }
-    const linkHeader = response.headers.get('link');
-    if (linkHeader) {
-        const lastPageMatch = linkHeader.match(/&page=(\d+)>; rel="last"/);
-        if (lastPageMatch) {
-            return parseInt(lastPageMatch[1], 10);
+    try {
+        const response = await fetch(`${API_URL}/repos/${owner.login}/${name}/commits?per_page=1`);
+        if (!response.ok) {
+            return 0;
         }
+        const linkHeader = response.headers.get('link');
+        if (linkHeader) {
+            const lastPageMatch = linkHeader.match(/&page=(\d+)>; rel="last"/);
+            if (lastPageMatch) {
+                return parseInt(lastPageMatch[1], 10);
+            }
+        }
+        return 0;
+    } catch (error) {
+        return 0;
     }
-    return 0;
 }
 
+// Function to fetch total commits for a user
+async function fetchTotalCommits(repos) {
+    const commitCounts = await Promise.all(repos.map(repo => fetchCommits(repo)));
+    const totalCommits = commitCounts.reduce((total, count) => total + count, 0);
+    document.getElementById('totalCommits').textContent = `📊 Total Commits: ${totalCommits}`;
+}
+
+// Function to fetch deployments for a repository
 async function fetchDeployments(repo) {
     const { owner, name } = repo;
     const response = await fetch(`${API_URL}/repos/${owner.login}/${name}/deployments`);
@@ -259,7 +285,7 @@ async function fetchDeployments(repo) {
     return deployments.length || 0;
 }
 
-
+// Function to handle pagination
 function displayPagination() {
     const totalPages = Math.ceil(repositoriesData.length / 9);
     let paginationHTML = `
@@ -287,12 +313,14 @@ function displayPagination() {
     paginationDiv.innerHTML = paginationHTML;
 }
 
+// Pagination one page repository count handler
 function navigatePage(page) {
     if (page >= 1 && page <= Math.ceil(repositoriesData.length / 9)) {
         displayRepositories(page);
     }
 }
 
+// Function to clear user data
 function clearUserData() {
     userImage.style.display = 'none';
     userName.textContent = '';
@@ -309,6 +337,7 @@ function clearUserData() {
     userInfoCard.style.display = 'none';
 }
 
+// Function to display error message if user data is not fetched
 function displayError(message) {
     alert(message);
 }
