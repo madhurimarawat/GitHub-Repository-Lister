@@ -5,7 +5,7 @@ An HTML, JS, and Bootstrap-based web application that dynamically lists GitHub r
 
 <a href="https://madhurimarawat.github.io/GitHub-Repository-Lister"><img width="960" title="Main Page Image" alt="Main Page Image" src="https://github.com/user-attachments/assets/5bcda84c-9139-49b3-9fbc-1d0a3bb5398c"></a>
 <br><br>
-<a href="https://madhurimarawat.github.io/GitHub-Repository-Lister"><img width="960" title="Main Page Image" alt="Main Page Image" src="https://github.com/user-attachments/assets/08dcc51d-e259-4fe3-bc12-d517cd5f7a41"></a>
+<a href="https://madhurimarawat.github.io/GitHub-Repository-Lister"><img width="960" title="Main Page Image" alt="Main Page Image" src="https://github.com/user-attachments/assets/fec9a049-3ff7-4148-b973-f26bc557301a"></a>
 <br> <br>
 <a href="https://madhurimarawat.github.io/GitHub-Repository-Lister/About.html"><img width="960" title="About Page Image" alt="About Page Image" src="https://github.com/user-attachments/assets/0ace3101-1e13-4df6-82f5-4087afe110d8">
 
@@ -36,7 +36,7 @@ An HTML, JS, and Bootstrap-based web application that dynamically lists GitHub r
 
 - **Enhanced Graphics Area**: A visually appealing graphics section uses clean design elements to make GitHub statistics and trends easily understandable.
 
-- **Comprehensive Repository Details**: Displays detailed information for each repository, including license, stars, deployments, forks, watchers, last updated, language, pull requests, commits, and issues. The layout adapts to a two-column format on larger screens and a single column on mobile devices for optimal readability.
+- **Comprehensive Repository Details**: Displays detailed information for each repository, including license, stars, deployments, forks, last updated, language, pull requests, commits, and issues. The layout adapts to a two-column format on larger screens and a single column on mobile devices for optimal readability.
 
 - **API Rate Limit Notice**: Due to GitHub's API rate limit of 60 requests per hour, some data may not be available after this limit is reached. Please try again after one hour.
   
