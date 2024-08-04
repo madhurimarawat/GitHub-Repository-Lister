@@ -274,12 +274,32 @@ h3 {
     /* Add space between grid items */
 }
 
+/* Styling for updated information */
+.updated {
+    margin-top: 5px;
+    /* Margin above */
+    margin-bottom: 5px;
+    /* Margin below */
+    display: block;
+    /* Ensure it behaves as a block element */
+    width: 100%;
+    /* Ensure it takes the full width of its container */
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width and height */
+}
+
 @media (min-width: 768px) {
 
     /* Adjust breakpoint as needed */
     .repo-actions {
         grid-template-columns: 1fr 1fr;
         /* Two columns for larger screens */
+    }
+
+    /* Styling for updated information */
+    .updated {
+        text-align: center;
+        /* Center align text inside the block element */
     }
 }
 
@@ -327,12 +347,6 @@ h3 {
         box-sizing: border-box;
     }
 
-    .repo-actions {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
     .repo-actions p {
         margin: 0;
         /* Removes margin between paragraphs */
@@ -340,6 +354,10 @@ h3 {
         /* Adjust this value to decrease or increase space */
         padding: 0;
         /* Removes padding inside paragraphs */
+    }
+
+    .updated {
+        text-align: left;
     }
 
     .centered-td img {

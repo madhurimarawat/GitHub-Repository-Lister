@@ -219,9 +219,8 @@ function displayRepositories(page) {
                             <p id="commits-${name}">📊 Commits: Fetching...</p>
                             <p id="deployments-${name}">🚀 Deployments: Fetching...</p>
                             <p>🍴 Forks: ${forks_count}</p>
-                            <p>👁️ Watchers: ${watchers_count}</p>
-                            <p>📅 Updated: ${new Date(updated_at).toLocaleDateString()}</p>
                             </div>
+                            <p class = "updated">📅 Updated: ${new Date(updated_at).toLocaleDateString()}</p>
                             <a href="${html_url}" target="_blank" class="btn btn-primary">View on GitHub</a>
                         </div>
                     </div>
