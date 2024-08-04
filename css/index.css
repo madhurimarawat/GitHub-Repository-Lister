@@ -298,8 +298,9 @@ h3 {
 
     /* Styling for updated information */
     .updated {
-        text-align: center;
+        text-align: center !important;
         /* Center align text inside the block element */
+        /* important is used to override all other style*/
     }
 }
 
