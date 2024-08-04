@@ -5,7 +5,7 @@ An HTML, JS, and Bootstrap-based web application that dynamically lists GitHub r
 
 <a href="https://madhurimarawat.github.io/GitHub-Repository-Lister"><img width="960" title="Main Page Image" alt="Main Page Image" src="https://github.com/user-attachments/assets/5bcda84c-9139-49b3-9fbc-1d0a3bb5398c"></a>
 <br><br>
-<a href="https://madhurimarawat.github.io/GitHub-Repository-Lister"><img width="960" title="Main Page Image" alt="Main Page Image" src="https://github.com/user-attachments/assets/6d6bb2e6-155f-4c8e-99d8-019735783b63"></a>
+<a href="https://madhurimarawat.github.io/GitHub-Repository-Lister"><img width="960" title="Main Page Image" alt="Main Page Image" src="https://github.com/user-attachments/assets/08dcc51d-e259-4fe3-bc12-d517cd5f7a41"></a>
 <br> <br>
 <a href="https://madhurimarawat.github.io/GitHub-Repository-Lister/About.html"><img width="960" title="About Page Image" alt="About Page Image" src="https://github.com/user-attachments/assets/0ace3101-1e13-4df6-82f5-4087afe110d8">
 
