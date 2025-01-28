@@ -86,7 +86,7 @@ An HTML, JS, and Bootstrap-based web application that dynamically lists GitHub r
 ```
 Github-Repository-Lister/
 ├── index.html                # Main landing page of the github repository lister website
-├── About.html                # Page dedicated to github toolkit
+├── about.html                # Page dedicated to github toolkit
 │
 ├── css/
 │   ├── index.css             # Stylesheet for index.html
